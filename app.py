@@ -58,6 +58,13 @@ hr { border-color: rgba(212, 175, 55, .35) !important; }
 input, textarea, [data-baseweb="select"] > div, [data-baseweb="input"], [data-baseweb="base-input"] {
     background-color: #15120B !important; color: #FFFFFF !important; border-color: #3A3120 !important; font-weight: 400 !important;
 }
+[data-baseweb="select"] > div { background-color: #15120B !important; border: 1px solid rgba(212,175,55,.45) !important; border-radius: 10px !important; }
+[data-baseweb="select"] input { background: transparent !important; }
+[data-baseweb="input"], [data-baseweb="base-input"], [data-testid="stNumberInput"] > div > div, [data-testid="stTextInput"] > div > div {
+    border: 1px solid rgba(212,175,55,.45) !important; border-radius: 10px !important; background-color: #15120B !important; }
+[data-baseweb="input"] > div, [data-baseweb="base-input"] input, [data-testid="stNumberInput"] input, [data-testid="stTextInput"] input { border: 0 !important; }
+[data-testid="stMultiSelect"] > div > div, [data-testid="stMultiSelect"] [data-baseweb="select"] { background-color: #15120B !important; }
+[data-baseweb="select"] svg { fill: #F5D76E !important; color: #F5D76E !important; }
 [data-baseweb="tag"] { background-color: #D4AF37 !important; }
 [data-baseweb="tag"] span { color: #000000 !important; }
 [data-baseweb="popover"] li, [data-baseweb="menu"] { background-color: #15120B !important; }
