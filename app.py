@@ -785,7 +785,7 @@ def page_history():
         ("2013-04-15", "April 2013 crash", 40, -150),
         ("2015-12-17", "First Fed rate hike<br>since 2006", 0, -80),
         ("2020-08-06", "COVID: gold tops $2,000", -60, -110),
-        ("2022-03-08", "Russia invades Ukraine", 20, -170),
+        ("2022-03-08", "Russia invades Ukraine", 40, -70),
         ("2025-03-14", "Gold tops $3,000", -120, -20),
         ("2025-10-08", "Gold tops $4,000", -130, 10),
     ]
