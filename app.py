@@ -766,7 +766,8 @@ def page_history():
     first, last = float(g25.iloc[0]), float(g25.iloc[-1])
     years = (g25.index[-1] - g25.index[0]).days / 365.25
     cagr = ((last / first) ** (1 / years) - 1) * 100
-    yearly = g25.groupby(g25.index.year).agg(["first", "last"])
+    full = g25.loc[str(g25.index[0].year + 1):]          # skip the partial first year
+    yearly = full.groupby(full.index.year).agg(["first", "last"])
     yearly_pct = (yearly["last"] / yearly["first"] - 1) * 100
     best_y, worst_y = int(yearly_pct.idxmax()), int(yearly_pct.idxmin())
 
@@ -777,32 +778,33 @@ def page_history():
     c4.metric("Best / worst year", f"{best_y}: {yearly_pct[best_y]:+.0f}%",
               f"{worst_y}: {yearly_pct[worst_y]:+.0f}%", delta_color="off")
 
+    # (date, label, arrow x-offset, arrow y-offset) - offsets keep labels from overlapping
     events = [
-        ("2008-09-15", "2008 financial crisis<br>(Lehman Brothers fails)"),
-        ("2011-09-06", "2011 record high<br>(debt crisis fears)"),
-        ("2013-04-15", "April 2013 crash"),
-        ("2015-12-17", "First Fed rate hike<br>since 2006"),
-        ("2020-08-06", "COVID: gold tops $2,000"),
-        ("2022-03-08", "Russia invades Ukraine"),
-        ("2025-03-14", "Gold tops $3,000"),
-        ("2025-10-08", "Gold tops $4,000"),
+        ("2008-09-15", "2008 financial crisis<br>(Lehman Brothers fails)", 0, -70),
+        ("2011-09-06", "2011 record high<br>(debt crisis fears)", -70, -60),
+        ("2013-04-15", "April 2013 crash", 40, -150),
+        ("2015-12-17", "First Fed rate hike<br>since 2006", 0, -80),
+        ("2020-08-06", "COVID: gold tops $2,000", -60, -110),
+        ("2022-03-08", "Russia invades Ukraine", 20, -170),
+        ("2025-03-14", "Gold tops $3,000", -120, -20),
+        ("2025-10-08", "Gold tops $4,000", -130, 10),
     ]
     fig = go.Figure(go.Scatter(x=g25.index, y=g25.values, mode="lines", name="Gold ($/oz)",
                                line=dict(color=GOLD_DEEP, width=2), fill="tozeroy",
                                fillcolor="rgba(212,175,55,.12)",
                                hovertemplate="%{x|%b %d, %Y}<br>$%{y:,.0f}<extra></extra>"))
-    for i, (day, label) in enumerate(events):
+    for day, label, dx, dy in events:
         d = pd.Timestamp(day)
         if d < g25.index[0] or d > g25.index[-1]:
             continue
         price = float(g25.loc[:d].iloc[-1])
         fig.add_annotation(x=d, y=price, text=label, showarrow=True, arrowhead=2,
-                           arrowcolor="#FFFFFF", ax=0, ay=(-45, -95, -145)[i % 3],
+                           arrowcolor="#FFFFFF", ax=dx, ay=dy,
                            font=dict(color="#FFFFFF", size=11),
                            bgcolor="rgba(0,0,0,.65)", bordercolor=GOLD_DEEP, borderpad=4)
     top_i = g25.idxmax()
     fig.add_annotation(x=top_i, y=float(g25.max()), text=f"Highest close ${g25.max():,.0f}<br>{top_i:%b %Y}",
-                       showarrow=True, arrowhead=2, arrowcolor=UP, ax=-80, ay=-30,
+                       showarrow=True, arrowhead=2, arrowcolor=UP, ax=-150, ay=-25,
                        font=dict(color=UP, size=11), bgcolor="rgba(0,0,0,.65)", bordercolor=UP, borderpad=4)
     fig.update_layout(height=560, margin=dict(l=20, r=70, t=30, b=40), showlegend=False,
                       paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,.35)",
@@ -819,10 +821,12 @@ def page_history():
                            text=[f"{v:+.0f}%" for v in yearly_pct.values], textposition="outside",
                            textfont=dict(color="#FFFFFF", size=11),
                            hovertemplate="%{x}: %{y:+.1f}%<extra></extra>"))
-    bar.update_layout(height=380, margin=dict(l=20, r=20, t=20, b=60), showlegend=False,
+    bar.update_layout(height=420, margin=dict(l=55, r=20, t=30, b=80), showlegend=False,
                       paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,.35)",
                       font=dict(color="#FFFFFF", size=11, family="Public Sans, sans-serif"),
-                      xaxis=dict(tickangle=-45), yaxis=dict(gridcolor="#2A2418", ticksuffix="%"))
+                      xaxis=dict(tickangle=-45, type="category"),
+                      yaxis=dict(gridcolor="#2A2418", ticksuffix="%",
+                                 range=[min(yearly_pct.min(), 0) * 1.3 - 5, max(yearly_pct.max(), 0) * 1.2 + 5]))
     st.plotly_chart(bar, width="stretch", theme=None)
     st.caption("Change from the first to the last trading day of each year. Past performance does not predict the future.")
 
