@@ -36,7 +36,7 @@ STYLE = """
 
 html, body { background: #000000 !important; color-scheme: dark; }
 .stApp, [data-testid="stApp"], [data-testid="stAppViewContainer"], [data-testid="stHeader"] { background: transparent !important; }
-.stApp { color: #FFFFFF; font-family: 'Public Sans', system-ui, sans-serif; font-size: 15px; }
+.stApp { color: #FFFFFF; font-family: 'Public Sans', system-ui, sans-serif; font-size: 14px; }
 [data-testid="stMainBlockContainer"] {
     background: rgba(0, 0, 0, .55); border-radius: 18px; margin-top: 1.2rem; padding-top: 2.4rem;
     border: 1px solid rgba(212, 175, 55, .25);
@@ -44,19 +44,19 @@ html, body { background: #000000 !important; color-scheme: dark; }
 
 /* All text: bold and white */
 .stApp p, .stApp li, .stApp label, .stApp span, .stApp small, .stApp div { color: #FFFFFF; }
-.stApp p, .stApp li, .stApp label, .stApp small { font-weight: 500 !important; font-size: 15px; }
-h1 { font-size: 2.1rem !important; }
-h2, h3 { font-size: 1.35rem !important; }
-[data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p { color: #FFFFFF !important; opacity: .8; font-weight: 400 !important; font-size: 13px !important; }
-h1, h2, h3 { font-family: 'Bricolage Grotesque', 'Segoe UI', sans-serif !important; color: #FFFFFF !important; font-weight: 700 !important; letter-spacing: -.01em; }
-[data-testid="stMetricLabel"] p { color: #FFFFFF !important; font-weight: 500 !important; }
-[data-testid="stMetricValue"] { color: #FFFFFF !important; font-weight: 700 !important; font-size: 1.6rem !important; font-family: 'Bricolage Grotesque', sans-serif; }
+.stApp p, .stApp li, .stApp label, .stApp small { font-weight: 400 !important; font-size: 14px; }
+h1 { font-size: 1.8rem !important; }
+h2, h3 { font-size: 1.15rem !important; font-weight: 600 !important; }
+[data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p { color: #FFFFFF !important; opacity: .8; font-weight: 400 !important; font-size: 12.5px !important; }
+h1, h2, h3 { font-family: 'Bricolage Grotesque', 'Segoe UI', sans-serif !important; color: #FFFFFF !important; font-weight: 600 !important; letter-spacing: 0; }
+[data-testid="stMetricLabel"] p { color: #FFFFFF !important; font-weight: 400 !important; }
+[data-testid="stMetricValue"] { color: #FFFFFF !important; font-weight: 500 !important; font-size: 1.35rem !important; font-family: 'Public Sans', sans-serif; }
 [data-testid="stAlert"] { background: rgba(212, 175, 55, .12) !important; border: 1px solid rgba(212, 175, 55, .45); }
 [data-testid="stAlert"] p { color: #FFFFFF !important; }
 hr { border-color: rgba(212, 175, 55, .35) !important; }
 
 input, textarea, [data-baseweb="select"] > div, [data-baseweb="input"], [data-baseweb="base-input"] {
-    background-color: #15120B !important; color: #FFFFFF !important; border-color: #3A3120 !important; font-weight: 500 !important;
+    background-color: #15120B !important; color: #FFFFFF !important; border-color: #3A3120 !important; font-weight: 400 !important;
 }
 [data-baseweb="tag"] { background-color: #D4AF37 !important; }
 [data-baseweb="tag"] span { color: #000000 !important; }
@@ -64,32 +64,32 @@ input, textarea, [data-baseweb="select"] > div, [data-baseweb="input"], [data-ba
 [data-testid="stNumberInput"] button { background-color: #15120B !important; color: #F5D76E !important; }
 
 .stButton > button {
-    background: #D4AF37; color: #000000; border: 0; font-weight: 600; border-radius: 10px; padding: .55rem 1.2rem;
+    background: #D4AF37; color: #000000; border: 0; font-weight: 500; border-radius: 10px; padding: .55rem 1.2rem;
 }
 .stButton > button:hover { background: #F5D76E; color: #000000; }
 .stButton > button p { color: #000000 !important; }
 
 /* Price cards, performance table, news */
 .mh-card { background: rgba(10,10,10,.75); border: 1px solid rgba(212,175,55,.35); border-radius: 14px; padding: 14px 18px 6px; }
-.mh-card .mh-name { color: #F5D76E; font-weight: 700; font-size: .95rem; letter-spacing: .02em; }
-.mh-card .mh-price { color: #FFFFFF; font-weight: 700; font-size: 1.8rem; font-family: 'Bricolage Grotesque', sans-serif; line-height: 1.1; }
-.mh-up { color: #00E676 !important; font-weight: 600; }
-.mh-down { color: #FF3D57 !important; font-weight: 600; }
-.mh-flat { color: #FFFFFF !important; font-weight: 600; }
-.mh-card .mh-chg { font-size: 1rem; }
-.mh-card .mh-sub { color: #CFC6AE !important; font-size: .78rem; font-weight: 400; }
+.mh-card .mh-name { color: #F5D76E; font-weight: 600; font-size: .85rem; letter-spacing: .02em; }
+.mh-card .mh-price { color: #FFFFFF; font-weight: 600; font-size: 1.55rem; font-family: 'Public Sans', sans-serif; line-height: 1.1; }
+.mh-up { color: #00E676 !important; font-weight: 400; }
+.mh-down { color: #FF3D57 !important; font-weight: 400; }
+.mh-flat { color: #FFFFFF !important; font-weight: 400; }
+.mh-card .mh-chg { font-size: .9rem; }
+.mh-card .mh-sub { color: #CFC6AE !important; font-size: .75rem; font-weight: 400; }
 table.mh-perf { width: 100%; border-collapse: collapse; background: rgba(10,10,10,.75); border: 1px solid rgba(212,175,55,.35); border-radius: 14px; overflow: hidden; }
-table.mh-perf caption { caption-side: top; color: #F5D76E; font-weight: 700; font-size: .95rem; padding: 10px 14px; text-align: left; background: rgba(10,10,10,.75); border: 1px solid rgba(212,175,55,.35); border-bottom: 0; border-radius: 14px 14px 0 0; }
-table.mh-perf th { color: #FFFFFF; font-weight: 600; font-size: .9rem; text-align: right; padding: 8px 14px; border-bottom: 1px solid rgba(212,175,55,.35); }
+table.mh-perf caption { caption-side: top; color: #F5D76E; font-weight: 600; font-size: .85rem; padding: 10px 14px; text-align: left; background: rgba(10,10,10,.75); border: 1px solid rgba(212,175,55,.35); border-bottom: 0; border-radius: 14px 14px 0 0; }
+table.mh-perf th { color: #FFFFFF; font-weight: 500; font-size: .82rem; text-align: right; padding: 8px 14px; border-bottom: 1px solid rgba(212,175,55,.35); }
 table.mh-perf th:first-child, table.mh-perf td:first-child { text-align: left; }
-table.mh-perf td { padding: 7px 14px; text-align: right; font-weight: 500; font-size: .9rem; color: #FFFFFF; border-bottom: 1px solid rgba(255,255,255,.06); }
+table.mh-perf td { padding: 7px 14px; text-align: right; font-weight: 400; font-size: .82rem; color: #FFFFFF; border-bottom: 1px solid rgba(255,255,255,.06); }
 table.mh-perf tr:nth-child(even) td { background: rgba(255,255,255,.03); }
 .mh-news { background: rgba(10,10,10,.75); border: 1px solid rgba(212,175,55,.25); border-left: 4px solid #D4AF37; border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; text-decoration: none !important; }
 .mh-news:hover { border-color: #F5D76E; background: rgba(212,175,55,.10); }
-.mh-news .mh-title, .mh-news .mh-title a { color: #FFFFFF !important; font-weight: 600; font-size: .95rem; text-decoration: none !important; }
+.mh-news .mh-title, .mh-news .mh-title a { color: #FFFFFF !important; font-weight: 400; font-size: .88rem; text-decoration: none !important; }
 .mh-news .mh-title a:hover { color: #F5D76E !important; text-decoration: underline !important; }
-.mh-news .mh-meta { color: #F5D76E !important; font-weight: 400; font-size: .8rem; margin-top: 4px; }
-.mh-tag { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: .72rem; font-weight: 800; margin-right: 6px; color: #000 !important; }
+.mh-news .mh-meta { color: #F5D76E !important; font-weight: 400; font-size: .75rem; margin-top: 4px; }
+.mh-tag { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: .65rem; font-weight: 600; margin-right: 6px; color: #000 !important; }
 </style>
 """
 st.markdown(STYLE, unsafe_allow_html=True)
@@ -560,7 +560,9 @@ def ai_summary(day: str, _facts: str) -> str:
             key = st.secrets["ANTHROPIC_API_KEY"]  # hidden secret on Streamlit Cloud
         except Exception:
             key = None
-    client = anthropic.Anthropic(api_key=key)
+    # Remove hidden spaces, line breaks or other invisible characters around the key
+    key = "".join(ch for ch in (key or "") if 33 <= ord(ch) <= 126) or None
+    client = anthropic.Anthropic(api_key=key, max_retries=3)
     msg = client.messages.create(
         model=AI_MODEL,
         max_tokens=2000,
@@ -615,8 +617,9 @@ else:
         if "Authentication" in name or "api_key" in str(exc).lower():
             summary_note = ("The AI summary is not available right now (the AI key is missing or not valid).")
         else:
-            summary_note = (f"The AI summary could not be written right now ({name}: {str(exc)[:200]}). "
-                            "Please try again tomorrow.")
+            cause = f" / {type(exc.__cause__).__name__}: {str(exc.__cause__)[:150]}" if exc.__cause__ else ""
+            summary_note = (f"The AI summary could not be written right now ({name}: {str(exc)[:150]}{cause}). "
+                            "Please try again later.")
 
 if summary_text:
     st.info(summary_text.replace("$", "\\$"))
@@ -667,18 +670,18 @@ fib_colors = {0.236: "#FF9F1C", 0.382: "#FF4FD8", 0.5: "#00B8FF", 0.618: "#00E67
 for lvl, colr in fib_colors.items():
     y = hi_v - (hi_v - lo_v) * lvl
     fig.add_hline(y=y, line=dict(color=colr, width=1.3, dash="dash"),
-                  annotation_text=f"<b>Fib {lvl:.3f}  ${y:,.0f}</b>", annotation_position="top left",
+                  annotation_text=f"Fib {lvl:.3f}  ${y:,.0f}", annotation_position="top left",
                   annotation_font=dict(color=colr, size=12))
 
-fig.add_annotation(x=hi_i, y=hi_v, text=f"<b>High ${hi_v:,.0f}</b>", showarrow=True,
+fig.add_annotation(x=hi_i, y=hi_v, text=f"High ${hi_v:,.0f}", showarrow=True,
                    arrowhead=2, arrowcolor="#FF4FD8", ax=-60, ay=-40,
                    font=dict(color="#FF4FD8", size=14))
-fig.add_annotation(x=lo_i, y=lo_v, text=f"<b>Low ${lo_v:,.0f}</b>", showarrow=True,
+fig.add_annotation(x=lo_i, y=lo_v, text=f"Low ${lo_v:,.0f}", showarrow=True,
                    arrowhead=2, arrowcolor="#00B8FF", ax=50, ay=40,
                    font=dict(color="#00B8FF", size=14))
 move_pct = (float(close.iloc[-1]) - lo_v) / lo_v * 100
 fig.add_annotation(x=gd.index[-1], y=float(close.iloc[-1]),
-                   text=f"<b>${close.iloc[-1]:,.0f}  ({move_pct:+.1f}% from low)</b>",
+                   text=f"${close.iloc[-1]:,.0f}  ({move_pct:+.1f}% from low)",
                    showarrow=True, arrowhead=2, arrowcolor=UP, ax=-110, ay=-45,
                    bgcolor="rgba(0,230,118,.18)", bordercolor=UP, borderpad=5,
                    font=dict(color="#FFFFFF", size=13))
@@ -688,7 +691,7 @@ fig.update_layout(
     margin=dict(l=70, r=80, t=30, b=40),
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,.35)",
-    font=dict(color="#FFFFFF", size=13, family="Public Sans, sans-serif"),
+    font=dict(color="#FFFFFF", size=12, family="Public Sans, sans-serif"),
     yaxis=dict(title="Gold ($/oz)", side="right", gridcolor="#2A2418", zeroline=False),
     yaxis2=dict(title="Dollar / Yield", overlaying="y", side="left",
                 showgrid=False, zeroline=False),
