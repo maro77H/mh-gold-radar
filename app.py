@@ -550,18 +550,22 @@ m3.metric("Inflation (CPI, yearly)", f"{inflation_cpi:.1f}%",
 AI_MODEL = "claude-haiku-5-5"   # small, fast, low-cost Claude model
 
 
-@st.cache_data(ttl=24 * 3600, show_spinner="Writing today's AI summary...")
-def ai_summary(day: str, _facts: str) -> str:
-    """Ask Claude for a short plain-English summary. Written once per day for all visitors."""
-    import anthropic
+def _clean_key():
+    """Read the AI key from this computer or from Streamlit Secrets, minus hidden characters."""
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
         try:
             key = st.secrets["ANTHROPIC_API_KEY"]  # hidden secret on Streamlit Cloud
         except Exception:
             key = None
-    # Remove hidden spaces, line breaks or other invisible characters around the key
-    key = "".join(ch for ch in (key or "") if 33 <= ord(ch) <= 126) or None
+    return "".join(ch for ch in (key or "") if 33 <= ord(ch) <= 126)
+
+
+@st.cache_data(ttl=24 * 3600, show_spinner="Writing today's AI summary...")
+def ai_summary(day: str, _facts: str) -> str:
+    """Ask Claude for a short plain-English summary. Written once per day for all visitors."""
+    import anthropic
+    key = _clean_key() or None
     client = anthropic.Anthropic(api_key=key, max_retries=3)
     msg = client.messages.create(
         model=AI_MODEL,
@@ -615,7 +619,11 @@ else:
     except Exception as exc:
         name = type(exc).__name__
         if "Authentication" in name or "api_key" in str(exc).lower():
-            summary_note = ("The AI summary is not available right now (the AI key is missing or not valid).")
+            k = _clean_key()
+            found = (f"a key with {len(k)} characters starting with '{k[:7]}' was found"
+                     if k else "no key was found in the app's Secrets")
+            summary_note = (f"The AI summary is not available right now ({name}; {found}; "
+                            f"{str(exc)[:160]}).")
         else:
             cause = f" / {type(exc.__cause__).__name__}: {str(exc.__cause__)[:150]}" if exc.__cause__ else ""
             summary_note = (f"The AI summary could not be written right now ({name}: {str(exc)[:150]}{cause}). "
