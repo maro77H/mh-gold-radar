@@ -36,7 +36,7 @@ STYLE = """
 
 html, body { background: #000000 !important; color-scheme: dark; }
 .stApp, [data-testid="stApp"], [data-testid="stAppViewContainer"], [data-testid="stHeader"] { background: transparent !important; }
-.stApp { color: #FFFFFF; font-family: 'Public Sans', system-ui, sans-serif; }
+.stApp { color: #FFFFFF; font-family: 'Public Sans', system-ui, sans-serif; font-size: 15px; }
 [data-testid="stMainBlockContainer"] {
     background: rgba(0, 0, 0, .55); border-radius: 18px; margin-top: 1.2rem; padding-top: 2.4rem;
     border: 1px solid rgba(212, 175, 55, .25);
@@ -44,17 +44,19 @@ html, body { background: #000000 !important; color-scheme: dark; }
 
 /* All text: bold and white */
 .stApp p, .stApp li, .stApp label, .stApp span, .stApp small, .stApp div { color: #FFFFFF; }
-.stApp p, .stApp li, .stApp label, .stApp small { font-weight: 700 !important; }
-[data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p { color: #FFFFFF !important; opacity: .85; font-weight: 600 !important; }
-h1, h2, h3 { font-family: 'Bricolage Grotesque', 'Segoe UI', sans-serif !important; color: #FFFFFF !important; font-weight: 800 !important; letter-spacing: -.02em; }
-[data-testid="stMetricLabel"] p { color: #FFFFFF !important; font-weight: 700 !important; }
-[data-testid="stMetricValue"] { color: #FFFFFF !important; font-weight: 800 !important; font-family: 'Bricolage Grotesque', sans-serif; }
+.stApp p, .stApp li, .stApp label, .stApp small { font-weight: 500 !important; font-size: 15px; }
+h1 { font-size: 2.1rem !important; }
+h2, h3 { font-size: 1.35rem !important; }
+[data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p { color: #FFFFFF !important; opacity: .8; font-weight: 400 !important; font-size: 13px !important; }
+h1, h2, h3 { font-family: 'Bricolage Grotesque', 'Segoe UI', sans-serif !important; color: #FFFFFF !important; font-weight: 700 !important; letter-spacing: -.01em; }
+[data-testid="stMetricLabel"] p { color: #FFFFFF !important; font-weight: 500 !important; }
+[data-testid="stMetricValue"] { color: #FFFFFF !important; font-weight: 700 !important; font-size: 1.6rem !important; font-family: 'Bricolage Grotesque', sans-serif; }
 [data-testid="stAlert"] { background: rgba(212, 175, 55, .12) !important; border: 1px solid rgba(212, 175, 55, .45); }
 [data-testid="stAlert"] p { color: #FFFFFF !important; }
 hr { border-color: rgba(212, 175, 55, .35) !important; }
 
 input, textarea, [data-baseweb="select"] > div, [data-baseweb="input"], [data-baseweb="base-input"] {
-    background-color: #15120B !important; color: #FFFFFF !important; border-color: #3A3120 !important; font-weight: 700 !important;
+    background-color: #15120B !important; color: #FFFFFF !important; border-color: #3A3120 !important; font-weight: 500 !important;
 }
 [data-baseweb="tag"] { background-color: #D4AF37 !important; }
 [data-baseweb="tag"] span { color: #000000 !important; }
@@ -62,31 +64,31 @@ input, textarea, [data-baseweb="select"] > div, [data-baseweb="input"], [data-ba
 [data-testid="stNumberInput"] button { background-color: #15120B !important; color: #F5D76E !important; }
 
 .stButton > button {
-    background: #D4AF37; color: #000000; border: 0; font-weight: 700; border-radius: 10px; padding: .55rem 1.2rem;
+    background: #D4AF37; color: #000000; border: 0; font-weight: 600; border-radius: 10px; padding: .55rem 1.2rem;
 }
 .stButton > button:hover { background: #F5D76E; color: #000000; }
 .stButton > button p { color: #000000 !important; }
 
 /* Price cards, performance table, news */
 .mh-card { background: rgba(10,10,10,.75); border: 1px solid rgba(212,175,55,.35); border-radius: 14px; padding: 14px 18px 6px; }
-.mh-card .mh-name { color: #F5D76E; font-weight: 800; font-size: 1.05rem; letter-spacing: .02em; }
-.mh-card .mh-price { color: #FFFFFF; font-weight: 800; font-size: 2.2rem; font-family: 'Bricolage Grotesque', sans-serif; line-height: 1.1; }
-.mh-up { color: #00E676 !important; font-weight: 800; }
-.mh-down { color: #FF3D57 !important; font-weight: 800; }
-.mh-flat { color: #FFFFFF !important; font-weight: 800; }
-.mh-card .mh-chg { font-size: 1.15rem; }
-.mh-card .mh-sub { color: #CFC6AE !important; font-size: .8rem; font-weight: 600; }
+.mh-card .mh-name { color: #F5D76E; font-weight: 700; font-size: .95rem; letter-spacing: .02em; }
+.mh-card .mh-price { color: #FFFFFF; font-weight: 700; font-size: 1.8rem; font-family: 'Bricolage Grotesque', sans-serif; line-height: 1.1; }
+.mh-up { color: #00E676 !important; font-weight: 600; }
+.mh-down { color: #FF3D57 !important; font-weight: 600; }
+.mh-flat { color: #FFFFFF !important; font-weight: 600; }
+.mh-card .mh-chg { font-size: 1rem; }
+.mh-card .mh-sub { color: #CFC6AE !important; font-size: .78rem; font-weight: 400; }
 table.mh-perf { width: 100%; border-collapse: collapse; background: rgba(10,10,10,.75); border: 1px solid rgba(212,175,55,.35); border-radius: 14px; overflow: hidden; }
-table.mh-perf caption { caption-side: top; color: #F5D76E; font-weight: 800; font-size: 1.05rem; padding: 10px 14px; text-align: left; background: rgba(10,10,10,.75); border: 1px solid rgba(212,175,55,.35); border-bottom: 0; border-radius: 14px 14px 0 0; }
-table.mh-perf th { color: #FFFFFF; font-weight: 800; text-align: right; padding: 8px 14px; border-bottom: 1px solid rgba(212,175,55,.35); }
+table.mh-perf caption { caption-side: top; color: #F5D76E; font-weight: 700; font-size: .95rem; padding: 10px 14px; text-align: left; background: rgba(10,10,10,.75); border: 1px solid rgba(212,175,55,.35); border-bottom: 0; border-radius: 14px 14px 0 0; }
+table.mh-perf th { color: #FFFFFF; font-weight: 600; font-size: .9rem; text-align: right; padding: 8px 14px; border-bottom: 1px solid rgba(212,175,55,.35); }
 table.mh-perf th:first-child, table.mh-perf td:first-child { text-align: left; }
-table.mh-perf td { padding: 7px 14px; text-align: right; font-weight: 700; color: #FFFFFF; border-bottom: 1px solid rgba(255,255,255,.06); }
+table.mh-perf td { padding: 7px 14px; text-align: right; font-weight: 500; font-size: .9rem; color: #FFFFFF; border-bottom: 1px solid rgba(255,255,255,.06); }
 table.mh-perf tr:nth-child(even) td { background: rgba(255,255,255,.03); }
 .mh-news { background: rgba(10,10,10,.75); border: 1px solid rgba(212,175,55,.25); border-left: 4px solid #D4AF37; border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; text-decoration: none !important; }
 .mh-news:hover { border-color: #F5D76E; background: rgba(212,175,55,.10); }
-.mh-news .mh-title, .mh-news .mh-title a { color: #FFFFFF !important; font-weight: 800; font-size: 1rem; text-decoration: none !important; }
+.mh-news .mh-title, .mh-news .mh-title a { color: #FFFFFF !important; font-weight: 600; font-size: .95rem; text-decoration: none !important; }
 .mh-news .mh-title a:hover { color: #F5D76E !important; text-decoration: underline !important; }
-.mh-news .mh-meta { color: #F5D76E !important; font-weight: 600; font-size: .82rem; margin-top: 4px; }
+.mh-news .mh-meta { color: #F5D76E !important; font-weight: 400; font-size: .8rem; margin-top: 4px; }
 .mh-tag { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: .72rem; font-weight: 800; margin-right: 6px; color: #000 !important; }
 </style>
 """
@@ -463,7 +465,7 @@ def arrow(v):
 st.title("🪙 MH Gold Radar")
 if live:
     st.caption(f"Gold market AI, explained simply. LIVE DATA - Yahoo Finance (delayed ~15 min), "
-               f"updated {pd.Timestamp.now():%b %d, %Y %I:%M %p}.")
+               f"updated {pd.Timestamp.now(tz='America/Los_Angeles'):%b %d, %Y %I:%M %p} PT.")
 else:
     st.caption("Gold market AI, explained simply. SAMPLE DATA - live prices could not be reached.")
     st.warning("Live prices are not available right now, so you are seeing sample numbers. "
@@ -604,15 +606,14 @@ if not live:
     summary_note = "The AI summary needs live prices, so it is off while the page shows sample data."
 else:
     try:
-        summary_text = ai_summary(pd.Timestamp.now().strftime("%A, %B %d, %Y"), facts)
+        summary_text = ai_summary(pd.Timestamp.now(tz="America/Los_Angeles").strftime("%A, %B %d, %Y"), facts)
         summary_note = None
     except ImportError:
         summary_note = "To turn on the AI summary, install the AI library:  python -m pip install anthropic"
     except Exception as exc:
         name = type(exc).__name__
         if "Authentication" in name or "api_key" in str(exc).lower():
-            summary_note = ("The AI summary needs your Anthropic API key saved on this computer "
-                            "as ANTHROPIC_API_KEY. Then close and restart the app.")
+            summary_note = ("The AI summary is not available right now (the AI key is missing or not valid).")
         else:
             summary_note = (f"The AI summary could not be written right now ({name}: {str(exc)[:200]}). "
                             "Please try again tomorrow.")
